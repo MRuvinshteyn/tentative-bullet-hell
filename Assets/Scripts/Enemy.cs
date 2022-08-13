@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     protected float targetX, targetY;
     protected float health;
-    GameObject player;
+    Transform player;
 
     string[] dropTable;
     float dropChance;
@@ -72,15 +72,15 @@ public class Enemy : MonoBehaviour
     /// </summary>
     protected virtual void InitializeVariables()
     {
-        player = GameObject.Find("player (temp)");
+        player = GameObject.Find("player (temp)").transform;
 
         dropTable = new string[] { Constants.GENERIC_PROJECTILE_MODIFIER };
         dropChance = 0.5f;
 
         health = 10.0f;
 
-        targetX = player.transform.position.x;
-        targetY = player.transform.position.y;
+        targetX = player.position.x;
+        targetY = player.position.y;
     }
 
     /// <summary>
@@ -88,8 +88,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     protected virtual void UpdateVariables()
     {
-        targetX = player.transform.position.x;
-        targetY = player.transform.position.y;
+        targetX = player.position.x;
+        targetY = player.position.y;
     }
 
     /// <summary>
